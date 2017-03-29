@@ -1,0 +1,2 @@
+<?php
+	 restricted(1);?>
