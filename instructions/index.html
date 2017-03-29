@@ -1,0 +1,352 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../boilerplate_files/favicon.ico">
+
+    <title>Boilerplate Instructions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../boilerplate_files/css/bootstrap.css" rel="stylesheet">
+
+    <link href="../boilerplate_files/css/bootstrap-theme.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../boilerplate_files/css/dashboard.css" rel="stylesheet">
+    
+    <link href="../boilerplate_files/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="../boilerplate_files/css/select2.css" rel="stylesheet">
+	<link href="../boilerplate_files/css/jquery.gritter.css" rel="stylesheet">
+	<link rel="stylesheet" href="../boilerplate_files/css/bootstrap-formhelpers-min.css" media="screen">
+   
+   
+       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      <script src="../boilerplate_files/js/jquery.js"></script>
+  </head>
+    <body> 
+    <div class="container-fluid">
+	    <div class="container">
+	    <div class="row">
+		    <div class="col-lg-3">
+			    <ul class="nav">
+					
+			<li><a href="#about" title="About">About</a></li>
+			<li><a href="#installation" title="Installation">Installation</a></li>
+			<li><a href="#setting_up" title="Setting Up">Setting Up</a></li>
+			<li><a href="#subscriptions" title="Subscriptions">Subscriptions</a></li>
+			<li><a href="#emails" title="Subscriptions">Emails</a></li>
+			<li><a href="#api" title="Subscriptions">API</a></li>
+			<li><a href="#custom" title="Subscriptions">Custom Classes</a></li>
+
+			</ul>
+		    </div>
+		    <div class="col-lg-9">
+			     
+	      
+<div class="page-header">
+	  <section id="about">
+        <h1>About</h1>
+      </div>
+      v.1.0.3<br/>
+After searching for years for a solid user management script, BoilerPlate was created. A fully supported script that includes support for: <br/>
+-Stripe for monthly subscriptions (not required).<br/>
+-Social Login for almost all major networks<br/>
+-Emails sent through Mandrill (a free emailing services from Mailchimp to reduce any security issues by mailing on your own server)<br/>
+-A complete RESTFUL API service to integrate into APPs<br/>
+-Individual and group management<br/>
+-Built on Bootstrap 3<br/>
+<br/>
+ <span style="color:#8f0000">Security</span><br/>
+-CSRF Safe using individual random session tokens<br/>
+-Passwords encrypted with Blowfish "crypt"<br/>
+-PDO to prevent MySql injection attacks<br/>
+
+
+<div class="page-header">
+	  <section id="installation">
+      <h1>Installation</h1>
+      </div>
+     <span style="color:#8f0000"> Because this script is designed to support app's and offers an API, it is highly recommended to use this script on a server that has an SSL certificate installed.  This script allows apps and other services to submit remote data for verification. An SSL certificate will keep your users information safe from prying eyes. The easiest way to get an SSL certificate is through your existing host, but <a href="http://support.hostgator.com/articles/ssl-certificates/ssl-for-newbies">HERE</a>  is a basic article on what they are.</span> <br/>
+     
+      1. Copy the entire directory to the location you want to install. <br/>
+      2. Set /includes/config.php permissions to 777. <br/>
+      3. Set /install/ and all subfiles to 777. <br/>
+      4. For your convenience, an optional installer is included. You will need to know the information to access your MySQL database to run the installer.<br/> 
+      5. Visit www.yoursite.com/boilerplate_files/install/<br/>
+      6. Follow instructions in the installer.<br/>
+      7. Make sure to delete /install/ after installation and change /includes/config.php permissions back to 755.<br/>
+      
+<div class="page-header">
+	  <section id="setting_up">
+       <h1>Setting Up</h1>
+      </div>
+	  1. After completing installation, visit www.yoursite.com/boilerplate_files/ and log in using the admin email and password your provided during the install. <br/>
+	  2. The admin panel on the left includes most options to configure and mange your system. <br/>
+	  3. Start with the General tab to set up your site and enter in your Stripe.com and Mandill.com API keys.<br/>
+	  You can sign up for both API's at www.stripe.com and www.mandrill.com <a href="http://help.mandrill.com/entries/21650603-How-do-I-get-started-with-Mandrill-">Getting Started with Mandril</a>. <br/>
+	   <img src="assets/stripe_key.jpg"><br/>
+			   <img src="assets/mandrill_key.jpg"><br/>
+	  4. Click on Social Settings to enter in your social network API keys. Each network will have different requirements to gain access to their systems, so please check with your preferred network. <br/>
+	  
+	  <div class="page-header">
+		    <section id="subscriptions">
+       <h1>Subscriptions</h1>
+      </div>
+      You can optionally charge users for membership (or give them membership for free). If you wish to charge, you can utilize the subscription plan settings to create and manage Stripe.com subscription plans. Due to the complexity of Stripe.com, some settings and options will need to be manually addressed at Stripe.com<br/>
+      You will need to set up, at www.stripe.com, under Stripe.com's account settings, your webhooks address. <br/>
+      <img src="assets/stripe_webhooks.jpg">
+      You're address should be http://www.yourwebsite.com/boilerplate_files/webhooks.php<br/>
+      You will want to select "send all event data" if asked.<br/>
+      1. On the left panel click <strong>Subscription Plans</strong><br/>
+      2. Click Add New<br/>
+      3. Enter a Title, and an ID. The ID must be a short lowercase identifier, with not spaces or special characters.<br/>
+      4. The interval is the measurement of time between each billing period (i.e. bill every month).<br/>
+      5. # of intervals is the number of intervals between each billing period (i.e. bill once every <strong>3</strong> months)<br/>
+      6. If you wish to offer your users a trial period to use your service without charging them, enter the amount of days you would like to allow them.<br/>
+      7. The group to activate field allows you to select a special group to add the user to, while their subscribed. This will allow you to add additional content for only those specific groups.<br/>
+      
+      <div class="page-header">
+		    <section id="permissions">
+       <h1>Page Permissions</h1>
+      </div>
+      Adding specific page permissions is easy. If you want to limit an entire page to just a specific group, this tool will allow you to do so. (if you want to limit just a part of a page to a group, you can add the code: <pre>$userClass=new User($DBH);<br/>if ($userClass->userIsInGroup(1, $user_id)){<br/> //Do something <br/> }<br/>
+</pre> <br/>
+     1. Click Page Permissions on the left menu</br>
+     2. This page automatically loads all pages inside the folder /boilerplate_files/pages/. For each page select the groups you would like to allow access.<br/>
+     3. If you want to grant access to all groups, you can leave the field blank. 
+      
+      <div class="page-header">
+	      <section id="emails">
+       <h1>Emails</h1>
+      </div>
+      To prevent security issues, it's always best to limit any emailing options your server has. To provide a better emailing experience, Mandrill.com is integrated to handle the sending of emails. Mandrill.com is completely free for use and take only a small effort to set up. You must enter your Mandill.com API key into the general settings area for emails to work.  <br/>
+        <img src="assets/mandrill_key.jpg"><br/>
+      You will need to create a few templates inside your Mandrill.com dashboard in order for Boilerplates messaging to work properly. Use the following information for the basic templates for your email templates. You can customize them as you wish inside Mandrill.com<br/>
+      <img src="assets/mandrill_template.jpg"><br/>
+      
+      <ul class="list-group">
+            <li class="list-group-item"><h3>Welcome Email</h3></li>
+            <li class="list-group-item">Template Slug: boilerplate-new-user</li>
+            <li class="list-group-item"><pre><xmp>*|name|*.
+
+Welcome! Here's your activation link!
+
+Click <a href="http://www.yourwebsite.com/confirm/*|code|*">Here</a> to activate your account.</xmp></pre></li>
+           
+          </ul>
+          <ul class="list-group">
+            <li class="list-group-item"><h3>Password Reminder</h3></li>
+            <li class="list-group-item">Template Slug: reset-password</li>
+            <li class="list-group-item"><pre><xmp>*|name|*.
+
+Welcome! Here's your password reset link!
+
+Click <a href="http://www.yourwebsite.com/reset/*|code|*">Here</a> to reset your account.</xmp></pre></li>
+           
+          </ul>
+      
+      <div class="page-header">
+	     <section id="api">
+       <h1>API</h1>
+      </div>
+      <span class="alert alert-danger">This is for advanced users who may be building mobile apps or services.</span><br/><br/>
+      The API system uses a RESTful method to communicate with the site.  By accessing www.yoursite.com/api/ you can utilize the prebuilt methods, or add more. The best way to learn about each method is to look at methods.php and also /includes/classes.php and if you would like to extend the api with more options, you should write them in methods_custom.php to prevent and conflicts with updates.<br/>
+     An example of using this type of system could be using ajax and jquery to get a list of all users<br/>
+     <pre>
+	     	 $.ajax( {
+		      type: "POST",
+		      url: 'http://www.yoursite.com/boilerplate_files/api/?action=listUsers&token=*UNIQUETOKEN*,
+		      data: "",
+		      success: function( response ) {
+		        //Do Something with response array
+					}
+		    	} );
+     </pre><br/>
+     or to log a user 
+       <pre>
+	     	 $.ajax( {
+		      type: "POST",
+		      url: 'http://www.yoursite.com/boilerplate_files/api/?email=*USERSEMAIL*&password=*USERSPASSWORD*,
+		      data: "",
+		      success: function( response ) {
+		        //Returns the Unique Token
+					}
+		    	} );
+     </pre>
+     
+     
+      
+      
+      <div class="row">
+  
+        <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Login</h3></li>
+            <li class="list-group-item">POST: email</li>
+            <li class="list-group-item">POST: password</li>
+            <li class="list-group-item">RETURNS: array of data, including the token needed to access the rest of the api.</li>
+          </ul>
+        </div>
+           <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Info on Single User</h3></li>
+            <li class="list-group-item">POST: action=getUser</li>
+            <li class="list-group-item">POST: token</li>
+            <li class="list-group-item">POST: user_id</li>
+           
+          </ul>
+        </div>
+           <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3>List All Users</h3></li>
+            <li class="list-group-item">POST: action=listusers</li>
+            <li class="list-group-item">POST: token</li>
+          </ul>
+        </div>
+      </div>
+            <div class="row">
+  
+        <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Delete Group</h3></li>
+            <li class="list-group-item">POST: action=deleteGroup</li>
+            <li class="list-group-item">POST: group_id</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+		   <ul class="list-group">
+            <li class="list-group-item"><h3>Delete User</h3></li>
+            <li class="list-group-item">POST: action=deleteUser</li>
+            <li class="list-group-item">POST: user_id</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3>Get All Group Users</h3></li>
+            <li class="list-group-item">POST: action=getGroupUsers</li>
+            <li class="list-group-item">POST: token</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="row">
+  
+        <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Save User</h3></li>
+            <li class="list-group-item">POST: action=saveUser</li>
+            <li class="list-group-item">POST: array of user data</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+		   <ul class="list-group">
+            <li class="list-group-item"><h3>List Groups</h3></li>
+            <li class="list-group-item">POST: action=getGroups</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3>Save Group</h3></li>
+            <li class="list-group-item">POST: action=saveGroup</li>
+            <li class="list-group-item">POST: array of group data</li>
+            <li class="list-group-item">POST: token</li>
+          </ul>
+        </div>
+      </div>
+      
+        <div class="row">
+  
+        <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Get Group</h3></li>
+            <li class="list-group-item">POST: action=getGroup</li>
+            <li class="list-group-item">POST: group_id</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+		   <ul class="list-group">
+            <li class="list-group-item"><h3>Delete Groups</h3></li>
+            <li class="list-group-item">POST: action=deleteGroup</li>
+            <li class="list-group-item">POST: group_id</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3>List Subscription Plans</h3></li>
+            <li class="list-group-item">POST: action=listPlans</li>
+            <li class="list-group-item">POST: token</li>
+          </ul>
+        </div>
+      </div>
+
+              <div class="row">
+  
+        <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Save Plan</h3></li>
+            <li class="list-group-item">POST: action=savePlan</li>
+            <li class="list-group-item">POST: array of plan details</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+		   <ul class="list-group">
+            <li class="list-group-item"><h3>Get Plan</h3></li>
+            <li class="list-group-item">POST: action=getPlan</li>
+            <li class="list-group-item">POST: plan_id</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item"><h3>Delete Plan</h3></li>
+            <li class="list-group-item">POST: action=deletePlan</li>
+            <li class="list-group-item">POST: plan_id</li>
+            <li class="list-group-item">POST: token</li>
+          </ul>
+        </div>
+      </div>
+              <div class="row">
+  
+        <div class="col-sm-4">
+       <ul class="list-group">
+            <li class="list-group-item"><h3>Register User</h3></li>
+            <li class="list-group-item">POST: action=registerUser</li>
+            <li class="list-group-item">POST: array of user details</li>
+            <li class="list-group-item">POST: token</li>
+        </ul>
+        </div>
+           <div class="col-sm-4">
+		   
+        </div>
+           <div class="col-sm-4">
+          
+        </div>
+      </div>
+      
+      <div class="custom">
+       <h1>Custom Classes and Customizations</h1>
+      </div>
+The best location to extend classes and functions is in /includes/custom_classes.php. This will prevent any conflicts in future upgrades. 
+
+
+      
+		    </div>
+	    </div>
+     </div>
+    </div>
+    </body>
+</html>
